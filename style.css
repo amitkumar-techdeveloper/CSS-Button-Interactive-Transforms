@@ -1,0 +1,366 @@
+/* CSS variables 
+I will use these values again in media queries */
+
+:root{
+    --primary-color: rgb(0,150,255);
+    --secondary-color: rgb(220, 245, 255);
+    --button-blue: dodgerblue;
+    --text-color: gray;
+}
+
+/* these help us to remove the default browser spacing */
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+/* whole webpage */
+body{
+    /* higher priority to the first font, if not available then next font comes in existence */
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+}
+
+/* header section */
+header{
+    margin-top: 40px;
+    padding: 25px 60px;
+    width: 100%;
+}
+
+/* Navigation bar */
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* website logo */
+.logo{
+    font-size: 36px;
+    font-weight: bold;
+}
+
+/* navigation links */
+ul{
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
+
+ul li a{
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+/* small hover effect for links */
+ul li a:hover{
+    color: var(--primary-color);
+}
+
+.nav-right{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* username button styling */
+.username-btn{
+    background-color: var(--secondary-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    color: var(--primary-color);
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.username-btn:hover{
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Hamburger button
+    Hidden on desktop. It will only appear on mobile */
+
+.menu-btn{
+    display: none;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    position: relative;
+}
+
+.mobile-menu{
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 75vw;
+    height: 85vh;
+    background-color: black;
+    border-radius: 8px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* mobile links */
+.mobile-menu a{
+    display: block;
+    text-decoration: none;
+    width: 180px;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.mobile-menu a:hover{
+    background-color: rgb(50, 50, 50);
+}
+
+/* hero section (desktop): text is in the left side and image on the right side */
+.hero-section{
+    width: 100%;
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* left side styling of hero section */
+.left{
+   flex: 1;
+   padding-left: 80px;
+   padding-right: 40px;
+}
+
+.left h2{
+    font-size: 55px;
+    font-weight: bold;
+    line-height: 70px;
+    margin-bottom: 20px;
+}
+
+.left span{
+    color: var(--primary-color);
+}
+
+.left p{
+    font-size: 25px;
+    color: var(--text-color);
+    line-height: 35px;
+    margin-bottom: 30px;
+}
+
+.book-btn{
+    background-color: var(--button-blue);
+    color: white;
+    padding: 18px 35px;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+
+    /* for smooth animation */
+    transition: transform 0.3s ease;
+}
+
+.book-btn:hover{
+    border-color: rgb(0,120,220);
+
+    /* When the mouse cursor comes over the button:display:
+        1. size is increased
+        2. it is slightly titled */
+    transform: scale(1.1) rotate(-5deg);
+}
+
+/* right side styling of hero section */
+.right{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 60px;
+}
+
+/* laundry image in the right side */
+.right img{
+    width: 520px;
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* tablet view (screen size: 768px and below) 
+    here i only reduce the size, the layout is still left and right. */
+
+
+@media (max-width: 768px){
+
+    /* less padding for tablet */
+    header{
+    padding: 20px 40px;
+    }
+
+    .logo{
+        font-size: 30px;
+    }
+
+    ul{
+        gap: 25px;
+    }
+
+    ul li a{
+        font-size: 14px;
+    }
+
+    .username-btn{
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+
+    .hero-section{
+        min-height: 70vh;
+    }
+
+    .left{
+        padding-left: 40px;
+        padding-right: 25px;
+    }
+
+    .left h2{
+        font-size: 40px;
+        line-height: 55px;
+    }
+
+    .left p{
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .book-btn{
+        padding: 15px 30px;
+        border-radius: 10px;
+        font-size: 16px;
+    }
+
+    .right{
+        padding-right: 40px;
+    }
+
+    .right img{
+        width: 360px;
+    }
+
+}
+
+
+/* Mobile view (screen size: 475px and below) 
+    Here the layout will change completely. */
+
+
+@media (max-width: 475px){
+
+    header{
+    padding: 15px 20px;
+    }
+
+    .logo{
+        font-size: 28px;
+    }
+    
+    /* this will hide the navigation links on small screens (mobiile) */
+    ul{
+        display: none;
+    }
+
+    .username-btn{
+        font-size: 12px;
+        padding: 8px 14px;
+    }
+
+    .menu-btn{
+        display: block;
+    }
+
+    .nav-right{
+        gap: 10px;
+    }
+
+    /* text above and image will go down (hero becomes vertical) */
+    .hero-section{
+        min-height: auto;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    /* On mobile there is not enough space, so i made the content appear vertically */
+
+    .left{
+        padding: 20px;
+    }
+
+    .right{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    flex: none;
+}
+
+    .left h2{
+        font-size: 34px;
+        line-height: 42px;
+    }
+
+    .left p{
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .book-btn{
+        width: 220px;
+    }
+
+    .right img{
+    display:block;
+    width:260px;
+    height:auto;
+    max-width:100%;
+}
+
+}
+
+
+/* Hamburger menu
+    no javascript is used.
+    the menu opens when the button gets focus. */
+
+
+.menu-btn:focus .mobile-menu{
+    display: flex;
+}
+
+/* keep button visible */
+.menu-btn:focus{
+    outline: none;
+}
+
+.mobile-menu a:hover{
+    background-color: #333333;
+}
+
+.mobile-menu{
+    transition: 0.3s;
+}
